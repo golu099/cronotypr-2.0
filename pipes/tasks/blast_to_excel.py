@@ -4,9 +4,8 @@ import sys
 import os
 import re
 import csv
-#WORKS!!
 #Takes blast tabular resuls and converts it into an excel sheet. 
-#argument 1= Blast txt file 
+#argument 1= Blast .tsv file. Output should have your dataset of samples as a query and your plasmid as the database. 
 #argument 2 = Excel output file
 with open(sys.argv[1], "r") as text_file, open(sys.argv[2], "wb") as outfile:
 	csv_reader = csv.reader(text_file, delimiter="\t")

@@ -1,6 +1,6 @@
 version 1.0 
-#make db of plasmids 
-task running_blastn {
+#make db of plasmids and run  blastn 
+task blastn_db {
     input {
         Array[File] database_fastas
         Array[File] query_fastas
@@ -40,7 +40,7 @@ output {
 runtime {
     docker: docker
     cpu: 2
-    memory:select_first([machine_mem_gb, 6]) + "GB"
+    memory: select_first([machine_mem_gb, 6]) + "GB"
     disk: disk_size_gb + " GB"
     disks: "local-disk " + disk_size_gb + " HDD"
 }
