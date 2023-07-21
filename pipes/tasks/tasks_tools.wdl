@@ -24,13 +24,13 @@ task blastn_db {
         query_names_list= list_sample_names.txt
         for x in ~{sep=' ' query_fastas}; do
             NEWSAMPLENAME=$(basename $fasta .fasta | perl -lape 's/[_]/-/g')
-            echo $NEWSAMPLENAME >> "list_sample_names.txt"
+            echo $NEWSAMPLENAME >> list_sample_names.txt
         #concat 
         cat ~{sep=" " database_fastas} > concat_db.fasta
         cat ~{sep=" " query_fastas} > concat_query.fasta
         #add the concat file as the "nt.fsa"
         blastn –db nt –query concat_db.fasta –out concat_db_ncbi
-        blastn -query concat_query.fasta -out "blast_output.txt" -task megablast -db concat_db_ncbi ~{"-num_threads" + num_threads} ~{"-evalue" + evalue} ~{"-best_hit_score_edge" + best_hit_score_edge} ~{"-best_hit_overhang"+ best_hit_overhang} -outfmt 6 ~{"-perc_identity" + perc_identity}
+        blastn -query concat_query.fasta -out blast_output.txt -task megablast -db concat_db_ncbi ~{"-num_threads" + num_threads} ~{"-evalue" + evalue} ~{"-best_hit_score_edge" + best_hit_score_edge} ~{"-best_hit_overhang"+ best_hit_overhang} -outfmt 6 ~{"-perc_identity" + perc_identity}
 >>>
 
 output { 
