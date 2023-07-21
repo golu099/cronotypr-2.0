@@ -24,7 +24,7 @@ task blastn_db {
         for x in ~{sep=' ' query_fastas}; do
             NEWSAMPLENAME=$(basename $fasta .fasta | perl -lape 's/[_]/-/g')
             echo $ NEWSAMPLENAME
-            echo $NEWSAMPLENAME >> list_sample_names.txt
+            echo $NEWSAMPLENAME > list_sample_names.txt
         #concat 
         cat ~{sep=" " database_fastas} > concat_db.fasta
         cat ~{sep=" " query_fastas} > concat_query.fasta
