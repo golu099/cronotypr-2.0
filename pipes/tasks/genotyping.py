@@ -16,7 +16,7 @@ with open(sys.argv[1], "r") as text_file, open(sys.argv[2], "wb") as outfile, op
 #change strain header to include only clm name. Made a list then added list ('Strain_name') to dataframe, and deleted strain clmn from dataframe('Strain')
 	for x in data['Strain']:
     		b = (re.search(r'(\w.+\d)+(_+\w*)',str(x)))
-		if b:
+	if b:
 			outfile_2.write(str(b.group(1))+'\n')
 		else:
 			p=(re.search(r'(\w.+\d.)+(_+\w*)',str(x)))
