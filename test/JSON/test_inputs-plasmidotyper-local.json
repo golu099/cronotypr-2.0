@@ -1,4 +1,4 @@
 {
-    "blastn_db": ["test/input/pCTU2.fasta", "test/input/pESA2.fasta"],
+    "database_fastas": ["test/input/pCTU2.fasta", "test/input/pESA2.fasta"],
     "query_fastas": ["test/input/csakCQ39.fasta","test/input/csakC019576.fasta"]
 }
