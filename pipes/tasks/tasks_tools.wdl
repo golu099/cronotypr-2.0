@@ -7,10 +7,10 @@ task blastn_db {
         Int     perc_identity = 50
         Float     best_hit_overhang = 0.25
         Float     best_hit_score_edge = 0.05
-        String     evalue = 1e-10
+        Float     evalue = 1e-10
         Int     num_threads = 12
         Int?    machine_mem_gb
-        Int     disk_size_gb = ceil(2*size(database_fastas, "GiB")) + 5
+        Int     disk_size_gb = ceil(2*size(database_fastas, "GiB")) + 20
         String  docker = "quay.io/broadinstitute/ncbi-tools:2.10.7.10"
         #what docker image should i use? Docker should contain ncbi and python 
         #String  docker 
@@ -101,7 +101,7 @@ task genotyping_length {
         File    query_names_list
         Int     cpu = 5
         Int     memory_mb = 2000 
-        Int     disk_size_gb = ceil(2*size(blast_csv, "GiB")) + 5  
+        Int     disk_size_gb = ceil(2*size(blast_csv, "GiB")) + 20  
         String  docker = "quay.io/broadinstitute/ncbi-tools:2.10.7.10"
     }
     meta {
