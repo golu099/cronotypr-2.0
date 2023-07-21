@@ -21,9 +21,9 @@ task blastn_db {
     command <<<
         set -ex -o pipefail
         #make new list of database fasta names 
-        query_names_list= list_sample_names.txt
         for x in ~{sep=' ' query_fastas}; do
             NEWSAMPLENAME=$(basename $fasta .fasta | perl -lape 's/[_]/-/g')
+            echo $ NEWSAMPLENAME
             echo $NEWSAMPLENAME >> list_sample_names.txt
         #concat 
         cat ~{sep=" " database_fastas} > concat_db.fasta
