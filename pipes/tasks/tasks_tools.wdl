@@ -11,7 +11,7 @@ task blastn_db {
         Int     num_threads = 12
         Int?    machine_mem_gb
         Int     disk_size_gb = ceil(2*size(database_fastas, "GiB")) + 20
-        String  docker = "quay.io/broadinstitute/ncbi-tools:2.10.7.10"
+        String  docker = "quay.io/broadinstitute/py3-bio:0.1.2"
         #what docker image should i use? Docker should contain ncbi and python 
         #String  docker 
     }
@@ -52,7 +52,7 @@ task blast_to_excel{
         Int     cpu = 5
         Int     memory_mb = 2000 
         Int     disk_size_gb = ceil(2*size(raw_blast, "GiB")) + 5  
-        String  docker = "quay.io/broadinstitute/ncbi-tools:2.10.7.10"
+        String  docker = "quay.io/broadinstitute/py3-bio:0.1.2"
     }
     meta {
         description: "Takes in blast_results.tsv and converts it into a .csv file."
@@ -102,7 +102,7 @@ task genotyping_length {
         Int     cpu = 5
         Int     memory_mb = 2000 
         Int     disk_size_gb = ceil(2*size(blast_csv, "GiB")) + 20  
-        String  docker = "quay.io/broadinstitute/ncbi-tools:2.10.7.10"
+        String  docker = "quay.io/broadinstitute/py3-bio:0.1.2"
     }
     meta {
         description: "Moving data into a plasmidotyper table."
